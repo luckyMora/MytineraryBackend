@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+
 const citySchema = new mongoose.Schema({
     name: {
         type: String,
@@ -11,6 +12,7 @@ const citySchema = new mongoose.Schema({
     },
     img: {
         type: String,
+        require: true
     }
 })
 

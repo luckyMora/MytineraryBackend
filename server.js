@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000;
 const db = require('./keys').mongoURI;
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const cityRoute = require('./routes/cities');  
 
 mongoose.connect(db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
     .then(() => console.log('Connection to Mongo DB established'))
@@ -19,8 +20,9 @@ app.use(
   })
 );
 app.use(cors());  
-const cityRoute = require('./routes/cities');  
+
 app.use('/cities', cityRoute)
+
 app.listen(port, () => {
   console.log("Server is running on " + port + "port");
 });
